@@ -26,6 +26,9 @@ if ! [ -d "$TC_DIR" ]; then
 	fi
 fi
 
+# KSU
+rm -rf KernelSU && curl -LSs "https://raw.githubusercontent.com/Ancient-Project/KernelSU/main/kernel/setup.sh" | bash -
+
 if [[ $1 = "-r" || $1 = "--regen" ]]; then
 	make O=out ARCH=arm64 $DEFCONFIG savedefconfig
 	cp out/defconfig arch/arm64/configs/$DEFCONFIG
